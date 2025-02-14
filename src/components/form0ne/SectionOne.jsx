@@ -156,7 +156,6 @@ const SectionOne = () => {
             {/*  */}
             <div className="self-stretch  h-fit flex-col justify-start items-start gap-2 flex lg:w-[556px] w-full mx-auto">
               <div className="self-stretch text-neutral-50 text-base font-normal font-roboto leading-normal">
-                Select Ticket Type:
                 <label htmlFor="Ticket-Type">Select Ticket Type:</label>
               </div>
               <div className="self-stretch lg:h-[142px] h-full   bg-[#052228] rounded-3xl border border-[#07373F] flex-col justify-center items-center gap-4 flex w-full">
