@@ -1,0 +1,32 @@
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@import url('https://db.onlinewebfonts.com/c/1a5c2d8bbd4e28d99a6efcbb9a5b378f?family=JejuMyeongjo');
+@import url('https://db.onlinewebfonts.com/c/1a5c2d8bbd4e28d99a6efcbb9a5b378f?family=Alatsi');
+@import url('https://fonts.googleapis.com/css2?family=Jeju+Myeongjo&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Alatsi&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+
+@import url('https://fonts.googleapis.com/css2?family=Road+Rage&display=swap');
+
+
+option{
+    background-color: #07373F;
+}
+
+input {
+  background-color: transparent;
+  
+}
+
+input:focus {
+  outline: none;
+}
