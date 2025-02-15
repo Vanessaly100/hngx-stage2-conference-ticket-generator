@@ -220,7 +220,7 @@ const SectionOne = () => {
                   submitBtnRef.current.focus();
                 }
               }}
-                    className="p-3 rounded-xl border bg-transparent outline-none border-[#07373F] text-white w-full"
+                    className="p-3 rounded-xl border bg-transparent outline-none border-[#07373F] text-white w-full cursor-pointer"
                   >
                     {[0, 1, 2, 3, 4].map((num) => (
                       <option key={num} value={num}>

@@ -1,6 +1,7 @@
 import  { useState } from "react";
 import { FaArrowRightLong } from "react-icons/fa6";
 import { RxHamburgerMenu } from "react-icons/rx";
+import { Link } from "react-router-dom";
 
 // import React from 'react'
 
@@ -15,7 +16,7 @@ const Navbar = () => {
     <div>
       <>
         <header className=" w-full h-[76px] flex justify-center items-center bg-[#02191D] fixed top-0 left-0 z-50">
-          <div className="xl:w-[1200px] lg:w-[800px] w-[90vw] rounded-xl border border-[#07363e] flex justify-between items-center h-full p-4 relative">
+          <div className="lg:w-[1200px] w-[90%] mx-auto rounded-xl border border-[#07363e] flex justify-between items-center h-full p-4 relative">
             <div>
               <div>
                 <svg
@@ -113,7 +114,10 @@ const Navbar = () => {
               </div>
             </div>
             <div className="capitalize text-[#B3B3B3;]  justify-center items-center gap-4 cursor-pointer text-[18px] font-[400] font-jeju hidden lg:flex">
-              <span>Events</span>
+              <Link
+              to="/"
+               type="submit">Events
+               </Link>
               <span>My Ticket</span>
               <span>About Project</span>
             </div>
@@ -135,7 +139,10 @@ const Navbar = () => {
               style={style}
             >
               <div className="capitalize text-[#B3B3B3;]  justify-center items-center gap-6 cursor-pointer text-[18px] font-[400] font-jeju flex flex-col w-full">
-                <span>Events</span>
+                <Link
+              to="/"
+               type="submit">Events
+               </Link>
                 <span>My Ticket</span>
                 <span>About Project</span>
               </div>

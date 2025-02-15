@@ -3,11 +3,14 @@ import ErrorImg from '../assets/ErrorImg.svg'
 
 const ErrorPage = () => {
   return (
+  
     <div>
-      <img src={ErrorImg} alt="" />
-      <p className="text-5xl">
-        Go to the <Link to="/">HomePage</Link>
+      <div className="h-screen">
+        <p className="text-5xl pt-5 pl-8">
+        Go to the <Link to="/" className="border border-green-500 rounded-lg bg-green-600 text-white p-4">HomePage</Link>
       </p>
+      <img src={ErrorImg} alt="" className="h-screen w-full"/>
+      </div>
     </div>
   );
 }
