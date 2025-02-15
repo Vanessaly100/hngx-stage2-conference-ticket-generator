@@ -198,11 +198,11 @@ const AtendeeDetails = () => {
           {/* attendeee */}
           <div className="self-stretch justify-start items-center gap-3 inline-flex">
             <div className="grow shrink basis-0 flex-col justify-start items-center gap-4 inline-flex h-[32]">
-              <div className="  self-stretch text-white text-[32px] font-normal font-jeju">
+              <div className="self-stretch text-white lg:text-[2rem] text-2xl  font-normal font-jeju">
                 Attendee Details
               </div>
             </div>
-            <div className="text-neutral-50 text-base font-normal font-roboto leading-normal">
+            <div className="text-neutral-50 text-[1rem] font-normal font-roboto leading-normal">
               Step 2/3
             </div>
           </div>
@@ -238,7 +238,7 @@ const AtendeeDetails = () => {
           <div className="self-stretch lg:h-[907px] h-fit p-6 bg-[#08252b] rounded-[32px] border border-[#0e464e] flex-col justify-center items-start gap-8 flex lg:w-[604px] w-full mx-auto">
             {/*  */}
             <div className="lg:h-[328px] h-fit px-6 pt-6 pb-12 bg-[#042127] rounded-3xl border border-[#07363e] flex-col justify-start items-start gap-8 flex w-full">
-              <div className="text-center text-neutral-50 text-base font-normal font-roboto leading-normal">
+              <div className="text-center text-neutral-50 text-[1rem] font-normal font-roboto leading-normal">
                 Upload Profile Photo
               </div>
               <div className="h-[200px] self-stretch bg-black/20 justify-center items-center gap-2.5 inline-flex">
@@ -267,7 +267,7 @@ const AtendeeDetails = () => {
                       />
                       <label
                         htmlFor="fileInput"
-                        className="text-center text-neutral-50 text-base font-normal cursor-pointer"
+                        className="text-center text-neutral-50 text-[1rem] font-normal cursor-pointer font-roboto"
                       >
                         Drag & drop or click to upload
                       </label>
@@ -302,7 +302,7 @@ const AtendeeDetails = () => {
                 <div className="lg:w-[556px] w-full mx-auto lg:h-[80px] h-full">
                   <label
                     htmlFor="text"
-                    className="self-stretch text-neutral-50 text-base font-normal font-roboto leading-normal h-6"
+                    className="self-stretch text-neutral-50 text-[1rem]  font-normal font-roboto leading-normal h-6"
                   >
                     Enter Your Name
                   </label>
@@ -345,7 +345,7 @@ const AtendeeDetails = () => {
                 <div className="lg:w-[556px] w-full mx-auto lg:h-[80px] h-full">
                   <label
                     htmlFor="email"
-                    className="self-stretch text-neutral-50 text-base font-normal font-roboto leading-normal"
+                    className="self-stretch text-neutral-50 text-[1rem]  font-normal font-roboto leading-normal"
                   >
                     Enter your email *
                   </label>
@@ -396,7 +396,7 @@ const AtendeeDetails = () => {
                 <div className="w-full">
                   <label
                     htmlFor="message"
-                    className="self-stretch text-neutral-50 text-base font-normal font-roboto leading-normal"
+                    className="self-stretch text-neutral-50 text-[1rem]  font-normal font-roboto leading-normal"
                   >
                     Message
                   </label>
@@ -446,7 +446,7 @@ const AtendeeDetails = () => {
                         e.currentTarget.click();
                       }
                     }}
-                    className="self-stretch grow shrink basis-0 lg:h-12 h-fit px-6 py-3 bg-[#23a0b5] rounded-lg justify-center items-center gap-2 flex text-white text-base"
+                    className="self-stretch grow shrink basis-0 lg:h-12 h-fit px-6 py-3 bg-[#23a0b5] rounded-lg justify-center items-center gap-2 flex text-white text-[1rem] font-jeju "
                   >
                     Get My Free Ticket
                   </button>
@@ -454,7 +454,7 @@ const AtendeeDetails = () => {
                   <Link
                     to="/"
                     type="submit"
-                    className="self-stretch grow shrink basis-0 lg:h-12 h-fit px-6 py-3 rounded-lg border border-[#23a0b5] justify-center items-center gap-2 flex text-[#23a0b5] text-base font-normal font-jeju leading-normal"
+                    className="self-stretch grow shrink basis-0 lg:h-12 h-fit px-6 py-3 rounded-lg border border-[#23a0b5] justify-center items-center gap-2 flex text-[#23a0b5] text-[1rem]  font-normal font-jeju leading-normal"
                   >
                     Back
                   </Link>

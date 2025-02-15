@@ -87,10 +87,10 @@ const DownloadTicket = () => {
           <div className="flex flex-col gap-8 w-full mx-auto">
             <div className="self-stretch h-fit flex-col justify-start items-start gap-3 flex  w-full lg:w-[604px]">
               <div className="self-stretch justify-between items-center gap-3 inline-flex h-fit w-full">
-                <div className="self-stretch text-white text-[32px] font-normal font-jeju">
+                <div className="self-stretch text-white lg:text-[2rem] text-2xl font-normal font-jeju">
                   Ready
                 </div>
-                <div className="text-neutral-50 text-base font-normal font-roboto leading-normal">
+                <div className="text-neutral-50 text-[1rem]  font-normal font-roboto leading-normal">
                   Step 3/3
                 </div>
               </div>
@@ -104,14 +104,14 @@ const DownloadTicket = () => {
 
             {/*  */}
             <div className="self-stretch lg:h-[81px] h-fit lg:w-[604px] w-full flex-col justify-start items-center gap-4 flex">
-              <div className=" lg:h-[41px] h-fit w-full self-stretch text-center text-white lg:text-[32px] font-normal text-2xl font-alatsi">
+              <div className=" lg:h-[41px] h-fit w-full self-stretch text-center text-white lg:text-[2rem] text-2xl  font-normal  font-alatsi">
                 Your Ticket is Booked!
               </div>
-              <div className="self-stretch text-center lg:h-[24px] h-fit w-full">
-                <span className="text-neutral-50 text-base font-normal font-roboto lg:leading-normal leading-[1.2]">
+              <div className="self-stretch text-center h-fit w-full">
+                <span className="text-neutral-50 text-[1rem] font-normal font-roboto lg:leading-normal leading-[1.2]">
                   Check your email for a copy or you can{" "}
                 </span>
-                <span className="text-neutral-50 text-base font-bold font-roboto lg:leading-normal leading-[1.2]">
+                <span className="text-neutral-50 text-[1rem]  font-bold font-roboto lg:leading-normal leading-[1.2]">
                   download
                 </span>
               </div>
@@ -188,7 +188,7 @@ const DownloadTicket = () => {
               <div className="w-[260px] h-fit lg:h-[446px] p-3.5 left-[20px] top-[20px] absolute bg-[#031d21]/10 rounded-2xl border border-[#23a0b5] backdrop-blur-sm justify-start items-center inline-flex">
                 <div className="w-[232px] flex-col justify-start items-center gap-5 inline-flex">
                   <div className="h-[fit] w-[full]  flex-col justify-start items-center flex">
-                    <div className="self-stretch text-center text-white lg:text-[26px] md:text-xl text-sm font-normal font-roadRage leading-[34px]">
+                    <div className="self-stretch text-center text-white lg:text-[2.125rem]  text-2xl font-normal font-roadRage leading-[34px]">
                       Techember Fest ”25
                     </div>
                     <div className="p-1 flex-col justify-center items-center gap-1 flex">
@@ -846,7 +846,7 @@ const DownloadTicket = () => {
                 }
               }}
               tabIndex="0"
-              className="text-white text-base font-normal font-jeju leading-normal 
+              className="text-white text-[1rem]  font-normal font-jeju leading-normal 
               h-12 px-6 py-3 bg-[#23a0b5] rounded-lg 
               flex justify-center items-center gap-2 w-full lg:flex-1"
             >
@@ -856,7 +856,7 @@ const DownloadTicket = () => {
             {/* Book Another Ticket Link */}
             <Link
               to="/"
-              className="text-[#23a0b5] text-base font-normal font-jeju leading-normal 
+              className="text-[#23a0b5] text-[1rem] font-normal font-jeju leading-normal 
               h-12 px-6 py-3 rounded-lg border border-[#23a0b5] 
               flex justify-center items-center gap-2 w-full lg:flex-1"
             >

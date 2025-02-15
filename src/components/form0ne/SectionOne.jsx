@@ -1,9 +1,8 @@
 import { Link } from "react-router-dom";
-import { useState, useEffect, useMemo,useRef } from "react";
+import { useState, useEffect, useMemo, useRef } from "react";
 import { tickets } from "./Tickets";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
-
 
 const SectionOne = () => {
   const [pickedTicket, setPickedTicket] = useState("Free");
@@ -71,20 +70,17 @@ const SectionOne = () => {
       text: "Your ticket has been successfully saved!",
       confirmButtonColor: "#23a0b5",
     }).then(() => {
-      setPickedTicket("Free"); 
+      setPickedTicket("Free");
       setNumTickets(0);
       setTotalPrice(0);
       navigate("/attendeedetails");
     });
   };
- ;
- 
   const handleCancel = () => {
     setPickedTicket("Free");
     setNumTickets(0);
     setTotalPrice(0);
   };
-  ;
   // Refs for keyboard navigation
   const numTicketsRef = useRef(null);
   const submitBtnRef = useRef(null);
@@ -102,11 +98,11 @@ const SectionOne = () => {
           <div className="self-stretch lg:h-12 h-fit flex-col justify-start items-start gap-3 flex">
             <div className="self-stretch justify-start items-center gap-3 inline-flex">
               <div className="grow shrink basis-0 flex-col justify-start items-center gap-4 flex">
-                <h1 className="self-stretch text-white lg:text-[32px] text-2xl font-normal font-['JejuMyeongjo']">
+                <h1 className="self-stretch text-white lg:text-[2rem] text-2xl font-normal font-jeju">
                   Ticket Selection
                 </h1>
               </div>
-              <div className="text-neutral-50 text-base font-normal font-['Roboto'] leading-normal">
+              <div className="text-neutral-50 text-[1rem] font-normal font-roboto leading-normal">
                 Step 1/3
               </div>
             </div>
@@ -127,22 +123,22 @@ const SectionOne = () => {
               }}
             >
               <div className="self-stretch h-fit flex-col justify-center items-center gap-2 flex">
-                <h1 className=" h-[62px]self-stretch text-center text-neutral-50 lg:text-[62px] md:text-4xl text-2xl font-normal font-roadRage leading-[62px]">
+                <h1 className=" h-[62px]self-stretch text-center text-neutral-50 lg:text-[3.875rem] text-4xl font-normal font-roadRage leading-[62px]">
                   Techember Fest ”25
                 </h1>
-                <p className="lg:w-[340px] w-11/12 mx-auto text-center text-neutral-50 lg:text-base text-sm font-normal font-roboto leading-normal ">
+                <p className="lg:w-[340px] w-11/12 mx-auto text-center text-neutral-50 lg:text-[1rem] text-sm font-normal font-roboto leading-normal ">
                   Join us for an unforgettable experience at [Event Name]!
                   Secure your spot now.
                 </p>
 
                 <div className="justify-start items-start gap-4 inline-flex lg:flex-row flex-col">
-                  <div className="text-neutral-50 text-base font-normal font-roboto leading-normal">
+                  <div className="text-neutral-50 lg:text-[1rem] text-sm font-normal font-roboto leading-normal">
                     📍 [Event Location]
                   </div>
-                  <div className="text-neutral-50 text-base font-normal font-roboto leading-normal lg:flex hidden">
+                  <div className="text-neutral-50 lg:text-[1rem] text-sm font-normal font-roboto leading-normal lg:flex hidden">
                     | |
                   </div>
-                  <div className="text-neutral-50 text-base font-normal font-roboto leading-normal text-center">
+                  <div className="text-neutral-50 lg:text-[1rem] text-sm font-normal font-roboto leading-normal text-center">
                     March 15, 2025 | 7:00 PM
                   </div>
                 </div>
@@ -155,7 +151,7 @@ const SectionOne = () => {
             </div>
             {/*  */}
             <div className="self-stretch  h-fit flex-col justify-start items-start gap-2 flex lg:w-[556px] w-full mx-auto">
-              <div className="self-stretch text-neutral-50 text-base font-normal font-roboto leading-normal">
+              <div className="self-stretch text-neutral-50 text-[1rem] font-normal font-roboto leading-normal">
                 <label htmlFor="Ticket-Type">Select Ticket Type:</label>
               </div>
               <div className="self-stretch lg:h-[142px] h-full   bg-[#052228] rounded-3xl border border-[#07373F] flex-col justify-center items-center gap-4 flex w-full">
@@ -164,22 +160,24 @@ const SectionOne = () => {
                 <div className="grid lg:grid-cols-3 grid-cols-1 gap-4 p-4 w-full  lg:h-[142px] h-full lg:w-[556p] mx-auto items-center justify-evenly self-stretch font-roboto">
                   {tickets.map((ticket) => (
                     <div
+                      id="ticket"
                       key={ticket.type}
-                      className="cursor-pointer"
+                      className="cursor-pointer flex flex-col gap-3 p- w-full"
                       onClick={() => setPickedTicket(ticket.type)}
                     >
                       <input
                         type="radio"
                         name="ticketOptions"
+                        id="radio"
                         value={ticket.type}
                         checked={pickedTicket === ticket.type}
                         onChange={() => setPickedTicket(ticket.type)}
-                    onKeyDown={(e) => {
-                      if (e.key === "Enter") {
-                        e.preventDefault();
-                        numTicketsRef.current.focus();
-                      }
-                    }}
+                        onKeyDown={(e) => {
+                          if (e.key === "Enter") {
+                            e.preventDefault();
+                            numTicketsRef.current.focus();
+                          }
+                        }}
                         className="hidden"
                       />
                       <div
@@ -189,13 +187,13 @@ const SectionOne = () => {
                             : "border-[#197686]"
                         }`}
                       >
-                        <div className="text-xl font-semibold">
+                        <div className="text-[1.5rem] font-semibold pb-3">
                           {ticket.price === 0 ? "Free" : `$${ticket.price}`}
                         </div>
-                        <div className=" text-sm uppercase leading-normal font-normal">
+                        <div className=" text-xs uppercase leading-normal font-normal">
                           {ticket.access}
                         </div>
-                        <div className="text-sm font-normal leading-[21px]">
+                        <div className="text-[0.875rem] font-normal leading-[21px]">
                           {ticket.left} / 52
                         </div>
                       </div>
@@ -205,7 +203,7 @@ const SectionOne = () => {
               </div>
 
               <div className="self-stretch lg:h-20 h-fit flex-col justify-start items-start gap-2 flex">
-                <div className="self-stretch text-neutral-50 text-base font-normal font-roboto leading-normal">
+                <div className="self-stretch text-neutral-50 text-[1rem] font-normal font-roboto leading-normal">
                   Number of Tickets
                 </div>
                 <div className="self-stretch  rounded-xl border border-[#07373F] justify-start items-center gap-2 inline-flex">
@@ -213,14 +211,14 @@ const SectionOne = () => {
                     value={numTickets}
                     onChange={handleNumChange}
                     id="number"
-                     ref={numTicketsRef}
-              onKeyDown={(e) => {
-                if (e.key === "Enter") {
-                  e.preventDefault();
-                  submitBtnRef.current.focus();
-                }
-              }}
-                    className="p-3 rounded-xl border bg-transparent outline-none border-[#07373F] text-white w-full cursor-pointer"
+                    ref={numTicketsRef}
+                    onKeyDown={(e) => {
+                      if (e.key === "Enter") {
+                        e.preventDefault();
+                        submitBtnRef.current.focus();
+                      }
+                    }}
+                    className="p-3 rounded-xl border bg-transparent outline-none border-[#07373F] text-white w-full cursor-pointer text-[1rem] "
                   >
                     {[0, 1, 2, 3, 4].map((num) => (
                       <option key={num} value={num}>
@@ -232,7 +230,7 @@ const SectionOne = () => {
               </div>
               {/*  */}
               {/* Total Price */}
-              <div className="text-white text-lg">
+              <div className="text-white text-lg font-roadRage">
                 Total Price: ${totalPrice.toFixed(2)}
               </div>
               {/*  */}
@@ -244,13 +242,13 @@ const SectionOne = () => {
                   id="submitBtn"
                   onClick={handleNext}
                   ref={submitBtnRef}
-              onKeyDown={(e) => {
-                if (e.key === "Enter" || e.key === " ") {
-                  e.preventDefault();
-                  e.currentTarget.click();
-                }
-              }}
-                  className="self-stretch grow shrink basis-0 lg:h-12 h-fit px-6 py-3 bg-[#23a0b5] rounded-lg justify-center items-center gap-2 flex text-white text-base"
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter" || e.key === " ") {
+                      e.preventDefault();
+                      e.currentTarget.click();
+                    }
+                  }}
+                  className="self-stretch grow shrink basis-0 lg:h-12 h-fit px-6 py-3 bg-[#23a0b5] rounded-lg justify-center items-center gap-2 flex text-white text-[1rem] "
                 >
                   Next
                 </Link>
@@ -258,7 +256,7 @@ const SectionOne = () => {
                 {/* Cancel Button */}
                 <button
                   onClick={handleCancel}
-                  className="self-stretch grow shrink basis-0 lg:h-12 h-fit px-6 py-3 rounded-lg border border-[#23a0b5] justify-center items-center gap-2 flex text-[#23a0b5] text-base font-normal font-jeju leading-normal"
+                  className="self-stretch grow shrink basis-0 lg:h-12 h-fit px-6 py-3 rounded-lg border border-[#23a0b5] justify-center items-center gap-2 flex text-[#23a0b5]  font-normal font-jeju leading-normal text-[1rem] "
                 >
                   Cancel
                 </button>

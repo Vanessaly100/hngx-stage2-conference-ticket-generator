@@ -113,10 +113,12 @@ const Navbar = () => {
                 </svg>
               </div>
             </div>
-            <div className="capitalize text-[#B3B3B3;]  justify-center items-center gap-4 cursor-pointer text-[18px] font-[400] font-jeju hidden lg:flex">
+            <div className="capitalize text-[#B3B3B3;]  justify-center items-center gap-4 cursor-pointer text-[18px] font-[400] font-jeju hidden lg:flex ">
               <Link
               to="/"
-               type="submit">Events
+               type="submit"
+               className="bg-MainBackgroundColorBorder py-3 px-5 rounded-lg hover:opacity-80 text-white"
+               >Events
                </Link>
               <span>My Ticket</span>
               <span>About Project</span>

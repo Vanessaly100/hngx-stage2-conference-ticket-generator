@@ -26,7 +26,7 @@ export default {
         roadRage: ["Road Rage", "serif"],
         alatsi: ["Alatsi", "sans-serif"],
         jeju: ["Jeju Myeongjo", "serif"],
-        roboto: ["Roboto", "serif"],
+        roboto: ["Roboto", "sans-serif"],
       },
     },
   },
