@@ -20,7 +20,7 @@ const MyTickets = () => {
         <h1 className="text-xl font-bold py-8 text-center text-[2.5rem]">
           My Ticket History
         </h1>
-        <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-4 w-[95%] mx-auto">
+        <div className="grid lg:grid-cols-4  gap-4 w-[95%] mx-auto">
           {ticketHistory.length > 0 ? (
             ticketHistory.map((ticket, index) => (
               <div
@@ -31,7 +31,7 @@ const MyTickets = () => {
                   <img
                     src={ticket.imageUrl}
                     alt="Ticket Image"
-                    className="w-full lg:h-40 md:h-[50px] object-cover rounded-md"
+                    className="w-full lg:h-40 md:h-[50px] object-cover rounded-md h-fit"
                   />
                 )}
                 <p>

@@ -167,7 +167,7 @@ const Navbar = () => {
                   type="submit"
                   className={({ isActive }) =>
                     isActive
-                      ? "bg-bg-[#23a0b5] py-3 px-5 rounded-lg hover:opacity-80 text-white"
+                      ? "bg-[#23a0b5] py-3 px-5 rounded-lg hover:opacity-80 text-white"
                       : "bg-transparent border-none"
                   }
                 >

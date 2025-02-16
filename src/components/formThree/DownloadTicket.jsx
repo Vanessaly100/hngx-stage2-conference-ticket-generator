@@ -48,35 +48,45 @@ const DownloadTicket = () => {
     setUserData({ name: "", email: "", pickedTicket: "", numTickets: 1 });
   };
 
-  const handleDownload = async () => {
-    if (!formRef.current) return;
+const handleDownload = async () => {
+  if (!formRef.current) return;
 
-    try {
-      window.scrollTo(0, 0);
-      setTimeout(async () => {
-        const canvas = await html2canvas(formRef.current, {
-          useCORS: true,
-          allowTaint: true,
-          scale: 2,
-        });
+  try {
+    window.scrollTo(0, 0);
+    setTimeout(async () => {
+      const canvas = await html2canvas(formRef.current, {
+        useCORS: true,
+        allowTaint: true,
+        scale: 2, 
+      });
 
-        const imgData = canvas.toDataURL("image/png");
-        const pdf = new jsPDF("p", "mm", "a4");
-        pdf.addImage(imgData, "PNG", 10, 10, 190, 0);
-        pdf.save("Ticket.pdf");
+      const imgData = canvas.toDataURL("image/png");
 
-        // Save ticket with image in history
-        let ticketHistory =
-          JSON.parse(localStorage.getItem("ticketHistory")) || [];
-        ticketHistory.push({ ...userData, image: imgData });
-        localStorage.setItem("ticketHistory", JSON.stringify(ticketHistory));
+      // Create a new PDF document with a proper aspect ratio
+      const pdf = new jsPDF({
+        orientation: "portrait",
+        unit: "mm",
+        format: "a4", 
+      });
 
-        console.log("Ticket saved to history:", ticketHistory);
-      }, 1000);
-    } catch (error) {
-      console.error("Error generating PDF:", error);
-    }
-  };
+      const imgWidth = 190; 
+      const imgHeight = (canvas.height * imgWidth) / canvas.width; 
+
+      pdf.addImage(imgData, "PNG", 10, 10, imgWidth, imgHeight);
+      pdf.save("Ticket.pdf");
+
+      // Save ticket history
+      let ticketHistory =
+        JSON.parse(localStorage.getItem("ticketHistory")) || [];
+      ticketHistory.push({ ...userData, image: imgData });
+      localStorage.setItem("ticketHistory", JSON.stringify(ticketHistory));
+
+      console.log("Ticket saved to history:", ticketHistory);
+    }, 1000);
+  } catch (error) {
+    console.error("Error generating PDF:", error);
+  }
+};
 
   return (
     <div>
