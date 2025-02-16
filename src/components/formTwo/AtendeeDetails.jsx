@@ -99,8 +99,8 @@ const AtendeeDetails = () => {
   const removeImage = () => {
     setImageUrl("");
   };
-  // FORM
 
+  // FORM
   const {
     values,
     errors,
@@ -183,7 +183,6 @@ const AtendeeDetails = () => {
       });
     },
   });
-
 
   return (
     <div>
@@ -448,7 +447,7 @@ const AtendeeDetails = () => {
                     }}
                     className="self-stretch grow shrink basis-0 lg:h-12 h-fit px-6 py-3 bg-[#23a0b5] rounded-lg justify-center items-center gap-2 flex text-white text-[1rem] font-jeju "
                   >
-                    Get My Free Ticket
+                    Get My Ticket
                   </button>
 
                   <Link

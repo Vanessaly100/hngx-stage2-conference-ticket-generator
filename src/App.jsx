@@ -4,6 +4,7 @@ import ErrorPage from './components/ErrorPage';
 import SectionOne from './components/form0ne/SectionOne';
 import AtendeeDetails from './components/formTwo/AtendeeDetails';
 import DownloadTicket from './components/formThree/DownloadTicket';
+import MyTickets from './components/MyTickets';
 
 
 const router = createBrowserRouter([
@@ -25,6 +26,10 @@ const router = createBrowserRouter([
       {
         path: "/downloadticket",
         element: <DownloadTicket />,
+      },
+      {
+        path: "/mytickets",
+        element: <MyTickets />,
       },
       
     ],

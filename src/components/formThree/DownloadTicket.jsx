@@ -64,6 +64,14 @@ const DownloadTicket = () => {
         const pdf = new jsPDF("p", "mm", "a4");
         pdf.addImage(imgData, "PNG", 10, 10, 190, 0);
         pdf.save("Ticket.pdf");
+
+        // Save ticket with image in history
+        let ticketHistory =
+          JSON.parse(localStorage.getItem("ticketHistory")) || [];
+        ticketHistory.push({ ...userData, image: imgData });
+        localStorage.setItem("ticketHistory", JSON.stringify(ticketHistory));
+
+        console.log("Ticket saved to history:", ticketHistory);
       }, 1000);
     } catch (error) {
       console.error("Error generating PDF:", error);
@@ -188,7 +196,7 @@ const DownloadTicket = () => {
               <div className="w-[260px] h-fit lg:h-[446px] p-3.5 left-[20px] top-[20px] absolute bg-[#031d21]/10 rounded-2xl border border-[#23a0b5] backdrop-blur-sm justify-start items-center inline-flex">
                 <div className="w-[232px] flex-col justify-start items-center gap-5 inline-flex">
                   <div className="h-[fit] w-[full]  flex-col justify-start items-center flex">
-                    <div className="self-stretch text-center text-white lg:text-[2.125rem]  text-2xl font-normal font-roadRage leading-[34px]">
+                    <div className="self-stretch text-center text-white lg:text-[1.6rem] pt-2  text-2xl font-normal font-roadRage leading-[34px]">
                       Techember Fest ”25
                     </div>
                     <div className="p-1 flex-col justify-center items-center gap-1 flex">

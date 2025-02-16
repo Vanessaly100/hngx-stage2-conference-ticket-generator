@@ -1,16 +1,14 @@
-import  { useState } from "react";
+import { useState } from "react";
 import { FaArrowRightLong } from "react-icons/fa6";
 import { RxHamburgerMenu } from "react-icons/rx";
-import { Link } from "react-router-dom";
-
-// import React from 'react'
+import { NavLink } from "react-router-dom";
 
 const Navbar = () => {
-    const [isOpen, setIsOpen] = useState(false);
-    const style = {
-      top: isOpen ? "80px" : "-100vh",
-      transition: "top 0.5s ease",
-    };
+  const [isOpen, setIsOpen] = useState(false);
+  const style = {
+    top: isOpen ? "80px" : "-100vh",
+    transition: "top 0.5s ease",
+  };
 
   return (
     <div>
@@ -114,21 +112,44 @@ const Navbar = () => {
               </div>
             </div>
             <div className="capitalize text-[#B3B3B3;]  justify-center items-center gap-4 cursor-pointer text-[18px] font-[400] font-jeju hidden lg:flex ">
-              <Link
-              to="/"
-               type="submit"
-               className="bg-MainBackgroundColorBorder py-3 px-5 rounded-lg hover:opacity-80 text-white"
-               >Events
-               </Link>
-              <span>My Ticket</span>
+              <NavLink
+                to="/"
+                type="submit"
+                className={({ isActive }) =>
+                  isActive
+                    ? "bg-[#23a0b5] py-3 px-5 rounded-lg hover:opacity-80 text-white"
+                    : "bg-transparent border-none"
+                }
+              >
+                Events
+              </NavLink>
+              <NavLink
+                to="mytickets"
+                className={({ isActive }) =>
+                  isActive
+                    ? "bg-[#23a0b5] py-3 px-5 rounded-lg hover:opacity-80 text-white"
+                    : "bg-transparent border-none"
+                }
+              >
+                My Ticket
+              </NavLink>
+
               <span>About Project</span>
             </div>
-            <div>
-              <button className="bg-white rounded-xl w-[169px]  h-[52px] text-[18px]  items-center justify-center gap-2 font-[400] font-jeju hidden lg:flex">
+            <div className="lg:block hidden">
+              <NavLink
+                to="mytickets"
+                className={({ isActive }) =>
+                  isActive
+                    ? "bg-[#23a0b5] rounded-xl w-[169px] h-[52px] text-[18px]  items-center justify-center gap-2 font-[400] font-jeju flex text-white"
+                    : "bg-white  rounded-xl w-[169px] h-[52px] text-[18px]  items-center justify-center gap-2 font-[400] font-jeju flex text-black"
+                }
+              >
                 My Ticket
                 <FaArrowRightLong />
-              </button>
+              </NavLink>
             </div>
+
             <div className="block lg:hidden">
               <RxHamburgerMenu
                 size={30}
@@ -137,22 +158,45 @@ const Navbar = () => {
               />
             </div>
             <div
-              className="absolute w-full flex flex-col items-center lg:hidden justify-center  left-0 h-[80vh] z-10 gap-6 bg-MainBackgroundColorBorder backdrop-blur-md p-12"
+              className="absolute w-full flex flex-col items-center lg:hidden justify-center  left-0 h-[80vh] z-10 gap-6 bg-white text-black backdrop-blur-md p-12"
               style={style}
             >
-              <div className="capitalize text-[#B3B3B3;]  justify-center items-center gap-6 cursor-pointer text-[18px] font-[400] font-jeju flex flex-col w-full">
-                <Link
-              to="/"
-               type="submit">Events
-               </Link>
-                <span>My Ticket</span>
-                <span>About Project</span>
+              <div className="capitalize text-[#B3B3B3;]  justify-center items-center gap-6 cursor-pointer text-[18px] font-[400] font-jeju flex flex-col w-full text-black">
+                <NavLink
+                  to="/"
+                  type="submit"
+                  className={({ isActive }) =>
+                    isActive
+                      ? "bg-bg-[#23a0b5] py-3 px-5 rounded-lg hover:opacity-80 text-white"
+                      : "bg-transparent border-none"
+                  }
+                >
+                  Events
+                </NavLink>
+                <NavLink
+                  to="mytickets"
+                  className={({ isActive }) =>
+                    isActive
+                      ? "bg-[#23a0b5] py-3 px-5 rounded-lg hover:opacity-80 text-white"
+                      : "bg-transparent border-none"
+                  }
+                >
+                  My Ticket
+                </NavLink>
+                <span className="text-black">About Project</span>
               </div>
               <div>
-                <button className="bg-white rounded-xl w-[169px] h-[52px] text-[18px]  items-center justify-center gap-2 font-[400] font-jeju flex">
+                <NavLink
+                  to="mytickets"
+                  className={({ isActive }) =>
+                    isActive
+                      ? "bg-[#23a0b5] rounded-xl w-[169px] h-[52px] text-[18px]  items-center justify-center gap-2 font-[400] font-jeju flex text-white"
+                      : "bg-MainBackgroundColorBorder rounded-xl w-[169px] h-[52px] text-[18px]  items-center justify-center gap-2 font-[400] font-jeju flex text-white"
+                  }
+                >
                   My Ticket
                   <FaArrowRightLong />
-                </button>
+                </NavLink>
               </div>
             </div>
           </div>
@@ -160,6 +204,6 @@ const Navbar = () => {
       </>
     </div>
   );
-}
+};
 
-export default Navbar
+export default Navbar;
