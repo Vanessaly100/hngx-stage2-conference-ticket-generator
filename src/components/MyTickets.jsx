@@ -14,6 +14,8 @@ const MyTickets = () => {
   setTicketHistory([]); 
 };
 
+
+
   return (
     <div>
       <section className="bg-MainBackgroundColor3 text-white h-fit pt-[80px]">

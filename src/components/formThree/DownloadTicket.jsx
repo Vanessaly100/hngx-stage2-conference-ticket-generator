@@ -48,45 +48,48 @@ const DownloadTicket = () => {
     setUserData({ name: "", email: "", pickedTicket: "", numTickets: 1 });
   };
 
-const handleDownload = async () => {
-  if (!formRef.current) return;
+  const handleDownload = async () => {
+    if (!formRef.current) return;
 
-  try {
-    window.scrollTo(0, 0); // Ensure top view
+    try {
+      window.scrollTo(0, 0);
 
-    // Temporarily adjust body to capture full content
-    document.body.style.height = "auto";
-    document.body.style.overflow = "visible";
+      document.body.style.height = "auto";
+      document.body.style.overflow = "visible";
 
-    await new Promise((resolve) => setTimeout(resolve, 1500)); // Allow full rendering
+      await new Promise((resolve) => setTimeout(resolve, 1500)); 
 
-    const canvas = await html2canvas(formRef.current, {
-      useCORS: true,
-      allowTaint: true,
-      scale: window.devicePixelRatio * 3,
-      scrollY: -window.scrollY, 
-      width: formRef.current.scrollWidth, 
-      height: formRef.current.scrollHeight, 
-    });
+      const canvas = await html2canvas(formRef.current, {
+        useCORS: true,
+        allowTaint: true,
+        scale: window.devicePixelRatio * 3,
+        scrollY: -window.scrollY,
+        width: formRef.current.scrollWidth,
+        height: formRef.current.scrollHeight,
+      });
 
-    
-    document.body.style.height = "";
-    document.body.style.overflow = "";
+      document.body.style.height = "";
+      document.body.style.overflow = "";
 
-    const imgData = canvas.toDataURL("image/png");
+      const imgData = canvas.toDataURL("image/png");
 
-    // Create a download link
-    const link = document.createElement("a");
-    link.href = imgData;
-    link.download = "Ticket.png"; 
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-  } catch (error) {
-    console.error("Error generating image:", error);
-  }
-};
+      let ticketHistory =
+        JSON.parse(localStorage.getItem("ticketHistory")) || [];
+      ticketHistory.push({ ...userData });
+      localStorage.setItem("ticketHistory", JSON.stringify(ticketHistory));
 
+      console.log("Ticket saved to history:", ticketHistory);
+
+      const link = document.createElement("a");
+      link.href = imgData;
+      link.download = "Ticket.png";
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    } catch (error) {
+      console.error("Error generating image:", error);
+    }
+  };
 
   return (
     <div>
