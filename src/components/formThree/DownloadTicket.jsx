@@ -52,34 +52,41 @@ const handleDownload = async () => {
   if (!formRef.current) return;
 
   try {
-    window.scrollTo(0, 0); // Scroll to top to avoid cut-off
-    await new Promise((resolve) => setTimeout(resolve, 1500)); // Wait for rendering
+    window.scrollTo(0, 0); // Ensure top view
+
+    // Temporarily adjust body to capture full content
+    document.body.style.height = "auto";
+    document.body.style.overflow = "visible";
+
+    await new Promise((resolve) => setTimeout(resolve, 1500)); // Allow full rendering
 
     const canvas = await html2canvas(formRef.current, {
       useCORS: true,
       allowTaint: true,
       scale: window.devicePixelRatio * 3,
-      width: formRef.current.scrollWidth,
-      height: formRef.current.scrollHeight,
+      scrollY: -window.scrollY, 
+      width: formRef.current.scrollWidth, 
+      height: formRef.current.scrollHeight, 
     });
+
+    
+    document.body.style.height = "";
+    document.body.style.overflow = "";
 
     const imgData = canvas.toDataURL("image/png");
 
-    const pdf = new jsPDF({
-      orientation: "portrait",
-      unit: "mm",
-      format: "a4",
-    });
-
-    const imgWidth = 190;
-    const imgHeight = (canvas.height * imgWidth) / canvas.width;
-
-    pdf.addImage(imgData, "PNG", 10, 10, imgWidth, imgHeight);
-    pdf.save("Ticket.pdf");
+    // Create a download link
+    const link = document.createElement("a");
+    link.href = imgData;
+    link.download = "Ticket.png"; 
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   } catch (error) {
-    console.error("Error generating PDF:", error);
+    console.error("Error generating image:", error);
   }
 };
+
 
   return (
     <div>

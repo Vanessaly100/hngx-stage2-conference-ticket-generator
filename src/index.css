@@ -32,11 +32,4 @@ input:focus {
 }
 
 
-@media screen and (max-width: 768px) {
-  #ticket-container {
-    width: 100% !important;
-    min-height: 100vh !important;
-    overflow: visible !important;
-    padding: 20px !important;
-  }
-}
+/*  */

@@ -31,7 +31,7 @@ const MyTickets = () => {
                   <img
                     src={ticket.imageUrl}
                     alt="Ticket Image"
-                    className="w-full lg:h-40 md:h-[50px] object-cover rounded-md h-fit"
+                    className="w-full lg:h-40 md:h-[50%] object-cover rounded-md h-fit"
                   />
                 )}
                 <p>
