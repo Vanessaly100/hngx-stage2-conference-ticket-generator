@@ -52,37 +52,30 @@ const handleDownload = async () => {
   if (!formRef.current) return;
 
   try {
-    window.scrollTo(0, 0);
-    setTimeout(async () => {
-      const canvas = await html2canvas(formRef.current, {
-        useCORS: true,
-        allowTaint: true,
-        scale: 2, 
-      });
+    window.scrollTo(0, 0); // Scroll to top to avoid cut-off
+    await new Promise((resolve) => setTimeout(resolve, 1500)); // Wait for rendering
 
-      const imgData = canvas.toDataURL("image/png");
+    const canvas = await html2canvas(formRef.current, {
+      useCORS: true,
+      allowTaint: true,
+      scale: window.devicePixelRatio * 3,
+      width: formRef.current.scrollWidth,
+      height: formRef.current.scrollHeight,
+    });
 
-      // Create a new PDF document with a proper aspect ratio
-      const pdf = new jsPDF({
-        orientation: "portrait",
-        unit: "mm",
-        format: "a4", 
-      });
+    const imgData = canvas.toDataURL("image/png");
 
-      const imgWidth = 190; 
-      const imgHeight = (canvas.height * imgWidth) / canvas.width; 
+    const pdf = new jsPDF({
+      orientation: "portrait",
+      unit: "mm",
+      format: "a4",
+    });
 
-      pdf.addImage(imgData, "PNG", 10, 10, imgWidth, imgHeight);
-      pdf.save("Ticket.pdf");
+    const imgWidth = 190;
+    const imgHeight = (canvas.height * imgWidth) / canvas.width;
 
-      // Save ticket history
-      let ticketHistory =
-        JSON.parse(localStorage.getItem("ticketHistory")) || [];
-      ticketHistory.push({ ...userData, image: imgData });
-      localStorage.setItem("ticketHistory", JSON.stringify(ticketHistory));
-
-      console.log("Ticket saved to history:", ticketHistory);
-    }, 1000);
+    pdf.addImage(imgData, "PNG", 10, 10, imgWidth, imgHeight);
+    pdf.save("Ticket.pdf");
   } catch (error) {
     console.error("Error generating PDF:", error);
   }
@@ -99,6 +92,7 @@ const handleDownload = async () => {
       >
         <div
           ref={formRef}
+          id="ticket-container"
           className="lg:h-[1025px]   lg:p-12 p-6 bg-MainBackgroundColor2 rounded-[24px] border border-MainBackgroundColorBorder flex-col justify-center items-center lg:gap-8 gap-4 flex lg:w-[700px] mx-auto w-[90%] "
         >
           {/*  */}
